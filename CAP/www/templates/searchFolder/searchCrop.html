@@ -1,0 +1,92 @@
+
+<ion-view view-title="Search">
+<div class="bar bar-header">
+        <button  style="background-color:transparent;color:#C8F7C5" class = "button icon ion-arrow-left-c" ng-click ="myGoBack()"></button>
+        <!--<img class="duh" src="img/crops/budy1.png" height="30" alt=""></img>-->
+      </div> 
+        <ion-content overflow-scroll="true" class="padding1" >
+ 
+
+
+                     
+                     <CENTER style="background-color:#C8F7C5;padding-bottom:10px"><select ng-model='cropselected' style="margin-top:55px" placeholder="Select Crop">
+                      <i style="color:#F2F1EF;" class="icon ion-leaf placeholder-icon"></i>
+                      <option  value="" disabled selected>Select a Crop</option>
+                        <option selected>Corn</option>    
+                        <option>Carrots</option>     
+                        <option>Potatoes</option>     
+                        <option>Squash</option>
+                        <option>Rice</option>     
+                        <option>Pineapple</option>     
+                        <option>Sugarcane</option>     
+                        <option>Eggplant</option>
+                        <option>Tomatoes</option>     
+                        <option>Ginger</option>     
+                        <option>Coconut</option>     
+                        <option>Cassava</option>
+                      </select>
+
+                      <button style="border-radius:50px;background-color:white;width:150px;height:35px;color:#1E824C;margin-top:10px" ng-click='go(cropselected)'>Select</button>
+                      </CENTER>  
+                    </div>
+    <div ng-show='no'>  
+
+      <center>
+                <img src="img/orgi.png" width="85" height="85" style="opacity:0.3;margin-top:150px"></img>
+              </center>
+    </div>
+                
+   <div ng-show='noResult'>
+                  <center>
+                             <h1 style="margin-top:35px;color:#C0C0C0;font-size:1.2em"> <br/><br/>There is nothing registered <br/>under the specified crop</h1>
+                            
+                           </center>
+            
+                 </div>
+
+ <div class="list" ng-repeat='crops in cropselectedlist' >
+                              <div  class="item item-input item-stacked-label" style="background-color:#f2ffe6;
+                                       max-width: 100%; margin-top:10px;">
+                                  
+                                     <label>
+                                        <div style="background:url('../img/greenfade.png')">
+                                         
+                                          <h3 style="font-size:24px;color:#78a64a">
+                                           <i style="color:#78a64a;float:left" class="icon ion-leaf placeholder-icon"></i>
+                                          {{crops.cropname}}</h3> 
+                                        </div>
+
+                                              <br/>
+                                             <span class="input-label">SELLER : <b>{{crops.cropseller}}</b></span><br/>
+                                             <span style="white-space: initial;width:96%;margin-right:10px;" class="input-label">LOCATION : <br/><b>{{crops.croplocation}}</b></span><br/>
+                                              <span class="input-label">ESTIMATED HARVEST DATE : <br/><b style="color:#78a64a">{{crops.cropharvestdate}}</b></span><br/>
+                                        
+                                        <div ng-show='toggle'>
+                                             <span class="input-label">HECTARS : <br/><b>{{crops.crophectars}}</b></span><br/>
+
+                                             <span  class="input-label">ADDTIONAL INFORMATION : <br/>
+                                              <div style="white-space: initial;max-width:100%;background-color:white">
+                                              <b >{{crops.cropinfo}}</b></span><br/>
+                                            </div>
+                                             <p>----------------</p>
+                                             <span class="input-label">DATE PLANTED : <br/><b>{{crops.cropplantdate | date : "dd/MMM/y"}}</b></span><br/>
+                                            
+                                             <span class="input-label">POST DATE : <br/><b>{{crops.croppostdate}}</b></span><br/><br/>
+                                             <center>
+                                       </div>
+                                       <br/>
+                                      
+                                          <button class="button button-calm" style="color: #78a64a;border: 1px solid #ace278;background-color:#C8F7C5;margin-bottom:15px;" ng-click="toggle = !toggle">{{toggle && 'Hide' || 'Show More'}}</button>
+  
+                                          
+                                       </center>
+                                       
+
+                                      </label>
+                                      <button class="button button-balanced" style="white-space: initial;font-size:14px;margin-left:5px;margin-bottom:15px;" ui-sref='reservationform({cropname:crops.cropname, buddyID: crops.cropsellerid, cropID: crops.$id})'>Request Reservation</button>
+
+                                    </div>
+                
+
+        </ion-content>
+</ion-view>

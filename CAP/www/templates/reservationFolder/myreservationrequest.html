@@ -1,0 +1,59 @@
+<ion-view view-title="My Reservations">
+
+<div class="bar bar-header">
+	   <button  style="background-color:transparent;color:#C8F7C5" class = "button icon ion-arrow-left-c" ng-click ="myGoBack()"></button>
+	   <p style="margin: auto;font-size: 1em;color:white;padding-right: 25px">My Reservation Requests</p>
+</div>
+
+<ion-content >
+	   <div>
+	   		 
+	   		<br/><br/>
+	   		 <div class='list' ng-repeat='res in myres'>
+			   		 <label class='item' style="background-color:white; margin: auto">
+				   		 	<span>
+				   		 		<p style="font-size: 10px">{{res.postdate}}</p>
+				   		 		<p style="font-size: 10px">RESERVATION STATUS : <b style="color:red">{{res.poststatus}}</b></p>
+				   		 	</span>
+				   		 	<br/>
+				   		 	<center>
+				   		 		<p style="font-size: 20px">You requested a reservation for<br/> {{res.postseller}}'s {{res.postname}}</p>
+				   		 	</center>
+			   		 </label>
+			   		 <br/>
+
+			   		 	<div style="background-color:white">	   		 				   		 		
+					   		<center>
+							 <button class="button button-small button-calm" ui-sref='selectedBuddy({buddyID: res.postsellerid})'>View Buyer Info</button>
+							 <button  class="button button-small button-balanced" ng-click='me.res=!me.res'>View Reservation Info</button>
+						
+							 <button class="button button-small button-assertive" ng-click='remove(res)'>Remove</button>	   		
+					   		</center>	
+			   			</div>
+
+			   				<div ng-show='me.res'>
+			   					Seller's Crop Info <br/>
+			   					Crop name:{{res.postname}}<br/>
+			   					Crop Location:{{res.postlocation}}<br/>
+			   					Crop Hectars:{{res.posthectars}}<br/>
+			   					Crop Plant Date:{{res.postplantdate}}<br/>
+			   					Crop Harvest Date:{{res.postharvestdate}}<br/>
+			   					Crop Info:{{res.postcropinfo}}<br/><br/>
+			   					My offer <br/>
+			   					Price:{{res.postmyoffer}}<br/>
+			   					Offer Info:{{res.postmyinfo}}
+
+			   				</div>
+
+
+	   		 </div>
+	   </div>
+	  
+				<div ng-show='wew'>
+                 <center>
+                 	<br/>
+                 <h1 style="margin-top:100px;color:#C0C0C0;font-size:1.3em"> <br/><br/>You haven't sent <br/> a reservation request yet.</h1>
+                </div>  
+                </center>
+</ion-content>
+  </ion-view>

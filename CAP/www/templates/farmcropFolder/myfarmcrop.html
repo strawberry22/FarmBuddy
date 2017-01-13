@@ -1,0 +1,57 @@
+<ion-view view-title="My Farm Crop">
+<div class="bar bar-header">
+   <button  style="background-color:transparent;color:#C8F7C5" class = "button icon ion-home" ui-sref="home.menu"></button> 
+
+   <p style="margin: auto;font-size: 1em;color:white;">My Crops</p>
+      <button style="float:right;background-color:transparent;color:#C8F7C5" class ="button icon ion-plus-round"  ui-sref='cropadd' ></button>
+
+      </div> 
+
+        <ion-content>
+       <div>
+       </div>
+       <br><br>   <div>
+
+
+                      <div ng-show='show' >
+
+                                <div class="item item-input item-stacked-label"  style="background-color:#f2ffe6;
+                                       max-width: 100%;" ng-repeat='crops in mycrops '>
+                                    
+                                     <label >
+                                       <div style="background:url('../img/greenfade.png')">
+                                         
+                                          <h3 style="font-size:24px;color:#78a64a">
+                                           <i style="color:#78a64a;float:left" class="icon ion-leaf placeholder-icon"></i>
+                                          {{crops.cropname}}</h3> 
+                                        </div>
+                                       <span class="input-label">LOCATION : <br/><b>{{crops.croplocation}}</b></span><br/>
+                                       <span class="input-label">HECTARS : <b>{{crops.crophectars}}</b></span><br/>                                  
+                                       <span class="input-label">DATE PLANTED : <br/><b>{{crops.cropplantdate }}</b></span><br/>
+                                    <span class="input-label">ESTIMATED HARVEST DATE : <br/><b>{{crops.cropharvestdate}}</b></span><br/>
+                                    <div style="background-color:white;border-radius:5px;border: 1px solid #BDC3C7;height: 100px;width:95%;margin-bottom:10px;margin-right:7px">
+                                       <span class="input-label">ADDTIONAL INFORMATION : </br><b>{{crops.cropinfo}}</b></span><br/>
+                                       </div>
+                                        <span class="input-label">POST DATE : <b>{{crops.croppostdate}}</b></span><br/>
+
+                                       <br>
+                                      </label>
+
+                                      <button class="button button-assertive" ng-click='delete(crops.cropid,crops.cropname)'>Delete</button>
+                                       <!-- <button class="button button-calm" ng-click='edit()'>Edit</button> -->
+                                       <br>
+                                       <br>
+                                </div> 
+                                <br>
+
+                      </div>
+                      <br><br><br>
+                 <div ng-hide="hide">
+                  <center> 
+                  <img src="img/orgi.png" width="85" height="85" style="opacity:0.3;margin-top:75px"></img>   
+                    <h3 style="color:#C0C0C0;font-size:1.3em">You don't have any crops <br/>yet</h3> </center>
+                  </div>
+                </div>
+           
+        </ion-content>
+</ion-view>
